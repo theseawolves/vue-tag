@@ -9,6 +9,15 @@
   <div id="el">
     <tag></tag>
   </div>
-  <script src="build.js" charset="utf-8"></script>
+  <script src="./node_modules/vue/dist/vue.js" charset="utf-8"></script>
+  <script src="./dist/vue-tag.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    var vm = new Vue({
+      el: '#el',
+      components: {
+        tag: VueTag
+      }
+    })
+  </script>
 </body>
 </html>

@@ -1,8 +1,10 @@
 module.exports = {
-  entry: './main.js',
+  entry: './src/index.js',
   output: {
     path: __dirname,
-    filename: 'build.js'
+    filename: './dist/vue-tag.js',
+    library: 'VueTag',
+    libraryTarget: 'umd'
   },
   module: {
     loaders: [

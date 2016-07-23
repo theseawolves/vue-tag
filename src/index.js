@@ -1,2 +1,2 @@
-var Tag = require('./Tag.vue');
-module.exports = Tag
+import Tag  from './Tag.vue'
+export {Tag}

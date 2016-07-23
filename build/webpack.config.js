@@ -2,8 +2,8 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: __dirname,
-    filename: './dist/vue-tag.js',
-    library: 'VueTag',
+    filename: '../dist/vue-tag.js',
+    library: 'VueComp',
     libraryTarget: 'umd'
   },
   module: {
@@ -11,6 +11,11 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue'
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel',
+        exclude: /node_modules/
       }
     ]
   }

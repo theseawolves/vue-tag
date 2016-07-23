@@ -5,10 +5,10 @@
 </template>
 
 <script>
-  module.exports = {
-    data: function(){
+  export default  {
+    data (){
       return {
-        msg: 'hello vue-tag'
+        msg: 'hello vue'
       }
     }
   }

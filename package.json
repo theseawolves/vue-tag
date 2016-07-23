@@ -4,7 +4,8 @@
   "description": "vue-tag",
   "main": "main.js",
   "scripts": {
-    "dev": "webpack-dev-server --config ./build/webpack.config.js --inline --hot"
+    "dev": "webpack-dev-server --config ./build/webpack.config.js --inline --hot",
+    "build": "webpack --config ./build/webpack.config.js"
   },
   "repository": {
     "type": "git",

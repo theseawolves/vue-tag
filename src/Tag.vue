@@ -21,6 +21,6 @@
 <style>
   .__tag {
     font-size: 40px;
-    color: #e2e2e2;
+    color: red;
   }
 </style>

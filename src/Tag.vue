@@ -20,7 +20,7 @@
 
 <style>
   .__tag {
-    font-size: 40px;
+    font-size: 50px;
     color: red;
   }
 </style>

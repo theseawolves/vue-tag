@@ -5,8 +5,11 @@
 </template>
 
 <script>
+  import tagMixin from './tagMixin'
+
   export default  {
-    data (){
+    mixins:[ tagMixin ],
+    data () {
       return {
         msg: 'hello vue'
       }
@@ -17,7 +20,7 @@
 
 <style>
   .__tag {
-    font-size: 20px;
-    color: #e5e5e5;
+    font-size: 40px;
+    color: #e2e2e2;
   }
 </style>

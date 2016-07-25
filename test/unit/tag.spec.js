@@ -16,4 +16,14 @@ describe('tag.vue', function(){
     }).$mount()
     expect(vm.$el.querySelector('.__tag').textContent.trim()).toBe('hello vue')
   })
+
+  it('should fetch data',function(){
+    var vm = new Vue({
+      template: '<div><test></test></div>',
+      components: {
+        test: Tag
+      }
+    }).$mount()
+    expect(vm.$children[0].fetch()).toBe('hello data')
+  })
 })

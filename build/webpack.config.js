@@ -9,16 +9,17 @@ module.exports = {
     libraryTarget: 'umd'
   },
   module: {
+    preLoaders: [
+      { test: /\.js$/, include: [path.resolve('src/')], loader: 'isparta' }
+    ],
     loaders: [
-      {
-        test: /\.vue$/,
-        loader: 'vue'
-      },
-      {
-        test: /\.js$/,
-        loader: 'babel',
-        exclude: /node_modules/
-      }
+      { test: /\.vue$/, loader: 'vue' },
+      { test: /\.js$/, loader: 'babel', exclude: /node_modules/ }
     ]
+  },
+  vue: {
+    loaders: {
+      js: 'isparta'
+    }
   }
 }

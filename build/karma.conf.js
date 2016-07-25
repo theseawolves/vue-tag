@@ -3,9 +3,9 @@ delete webpackConf.entry
 
 module.exports = function (config) {
   config.set({
-    browsers: ['PhantomJS'],
+    browsers: ['PhantomJS','Chrome','Firefox'],
     frameworks: ['jasmine'],
-    reporters: ['spec'],
+    reporters: ['spec','coverage'],
     files: ['../test/unit/index.js'],
     preprocessors: {
       '../test/unit/index.js': ['webpack']
@@ -14,6 +14,14 @@ module.exports = function (config) {
     webpackMiddleware: {
       noInfo: true
     },
-    singleRun: true
+    singleRun: true,
+    coverageReporter: {
+      dir: '../test/unit/coverage',
+      reporters: [
+        { type: 'json', subdir: '.', file: 'coverage.json'},
+        { type: 'lcov', subdir: '.'},
+        { type: 'text-summary'}
+      ]
+    }
   })
 }

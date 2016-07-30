@@ -4,9 +4,10 @@
   "description": "vue-tag",
   "main": "main.js",
   "scripts": {
-    "dev": "webpack-dev-server --config ./build/webpack.config.js --inline --hot",
-    "build": "webpack --config ./build/webpack.config.js",
-    "test:unit": "NODE_ENV=development karma start ./build/karma.conf.js"
+    "dev": "webpack-dev-server --config build/webpack.config.js --inline --hot",
+    "build": "webpack --config build/webpack.config.js",
+    "test:unit": "NODE_ENV=development karma start build/karma.conf.js",
+    "test:cover": "cat test/unit/coverage/lcov.info | node_modules/.bin/coveralls"
   },
   "repository": {
     "type": "git",

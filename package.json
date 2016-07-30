@@ -8,7 +8,7 @@
     "build": "webpack --config build/webpack.config.js",
     "test:unit": "NODE_ENV=development karma start build/karma.conf.js",
     "test:cover": "cat test/unit/coverage/lcov.info | node_modules/.bin/coveralls",
-    "test:sauce": "NODE_ENV=development SAUCE=true karma start build/karma.sauce.config.js"
+    "test:sauce": "NODE_ENV=development SAUCE=true karma start build/karma.sauce.conf.js"
   },
   "repository": {
     "type": "git",

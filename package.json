@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack-dev-server --config ./build/webpack.config.js --inline --hot",
     "build": "webpack --config ./build/webpack.config.js",
-    "test": "karma start ./build/karma.conf.js --single-run"
+    "test:unit": "NODE_ENV=development karma start ./build/karma.conf.js"
   },
   "repository": {
     "type": "git",

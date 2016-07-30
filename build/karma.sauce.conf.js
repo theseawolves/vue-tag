@@ -1,4 +1,4 @@
-var base = require('karma.conf')
+var base = require('./karma.conf')
 
 var batches = [
   // the cool kids
@@ -82,8 +82,8 @@ module.exports = function (config) {
             'testName': 'Vue Tag Unit Tests',
             'public': 'public'
         },
-        browsers: Object.keys(batch),
-        customLaunchers: batch,
+        browsers: Object.keys(batches),
+        customLaunchers: batches,
         reporters: ['progress', 'saucelabs'],
         singleRun: true
     }));

@@ -9,7 +9,7 @@
     "test:unit": "NODE_ENV=development karma start build/karma.conf.js",
     "test:cover": "cat test/unit/coverage/lcov.info | node_modules/.bin/coveralls",
     "sauce": "NODE_ENV=development SAUCE=true karma start build/karma.sauce.conf.js",
-    "test:sauce": "npm run sauce -- 0 && npm run sauce -- 1 && npm run sauce -- 2",
+    "test:sauce": "npm run sauce -- 0 && npm run sauce -- 1 && npm run sauce -- 2"
   },
   "repository": {
     "type": "git",
@@ -43,9 +43,9 @@
     "karma-firefox-launcher": "^1.0.0",
     "karma-jasmine": "^1.0.2",
     "karma-phantomjs-launcher": "^1.0.1",
+    "karma-safari-launcher": "^1.0.0",
     "karma-sauce-launcher": "^1.0.0",
     "karma-spec-reporter": "0.0.26",
-    "karma-sauce-launcher": "^1.0.0",
     "karma-webpack": "^1.7.0",
     "phantomjs-prebuilt": "^2.1.7",
     "style-loader": "^0.13.1",

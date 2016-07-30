@@ -77,13 +77,15 @@ module.exports = function (config) {
         process.env.SAUCE_ACCESS_KEY = require('./sauce').accessKey;
     }
 
+    var batch = batches[process.argv[4] || 0]
+
     config.set(Object.assign(base, {
         sauceLabs: {
             'testName': 'Vue Tag Unit Tests',
             'public': 'public'
         },
-        browsers: Object.keys(batches),
-        customLaunchers: batches,
+        browsers: Object.keys(batch),
+        customLaunchers: batch,
         reporters: ['progress', 'saucelabs'],
         singleRun: true
     }));

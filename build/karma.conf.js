@@ -3,7 +3,7 @@ delete webpackConf.entry
 
 module.exports = function (config) {
   config.set({
-    browsers: ['PhantomJS','Chrome','Firefox'],
+    browsers: ['PhantomJS'],
     frameworks: ['jasmine'],
     reporters: ['progress'],
     files: ['../test/unit/index.js'],
@@ -15,13 +15,13 @@ module.exports = function (config) {
       noInfo: true
     },
     singleRun: true,
-    // coverageReporter: {
-    //   dir: '../test/unit/coverage',
-    //   reporters: [
-    //     { type: 'json', subdir: '.', file: 'coverage.json'},
-    //     { type: 'lcov', subdir: '.'},
-    //     { type: 'text-summary'}
-    //   ]
-    // }
+    coverageReporter: {
+      dir: '../test/unit/coverage',
+      reporters: [
+        { type: 'json', subdir: '.', file: 'coverage.json'},
+        { type: 'lcov', subdir: '.'},
+        { type: 'text-summary'}
+      ]
+    }
   })
 }

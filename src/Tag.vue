@@ -11,7 +11,8 @@
     mixins:[ tagMixin ],
     data () {
       return {
-        msg: 'hello vue'
+        msg: 'hello vue',
+        value: []
       }
     }
   }

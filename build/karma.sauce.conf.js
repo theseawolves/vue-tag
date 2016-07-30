@@ -1,4 +1,4 @@
-var base = require('karma.sauce.conf')
+var base = require('karma.conf')
 
 var batches = [
   // the cool kids

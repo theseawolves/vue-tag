@@ -9,7 +9,7 @@
     "test:unit": "NODE_ENV=development karma start build/karma.conf.js",
     "test:cover": "cat test/unit/coverage/lcov.info | node_modules/.bin/coveralls",
     "sauce": "NODE_ENV=development SAUCE=true karma start build/karma.sauce.conf.js",
-    "test:sauce": "npm run sauce -- 0 && npm run sauce -- 1 && npm run sauce -- 2"
+    "test:sauce": "NODE_ENV=development karma start build/karma.sauce.conf.js"
   },
   "repository": {
     "type": "git",

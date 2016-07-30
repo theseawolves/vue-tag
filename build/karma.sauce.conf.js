@@ -1,73 +1,52 @@
 var base = require('./karma.conf')
 
-var batches = [
-  // the cool kids
-  {
-    sl_chrome: {
-      base: 'SauceLabs',
-      browserName: 'chrome',
-      platform: 'Windows 7'
+var customLaunchers = {
+    // pc
+    slChrome: {
+        base: 'SauceLabs',
+        browserName: 'chrome',
+        platform: 'Windows 7'
     },
-    sl_firefox: {
-      base: 'SauceLabs',
-      browserName: 'firefox'
+    slFirefox: {
+        base: 'SauceLabs',
+        browserName: 'firefox'
     },
-    sl_mac_safari: {
-      base: 'SauceLabs',
-      browserName: 'safari',
-      platform: 'OS X 10.10'
+    slIE11: {
+        base: 'SauceLabs',
+        browserName: 'internet explorer',
+        platform: 'Windows 8.1',
+        version: '11'
+    },
+    slIE10: {
+        base: 'SauceLabs',
+        browserName: 'internet explorer',
+        platform: 'Windows 8',
+        version: '10'
+    },
+    slIE9: {
+        base: 'SauceLabs',
+        browserName: 'internet explorer',
+        version: '9'
+    },
+    slMacSafari: {
+        base: 'SauceLabs',
+        browserName: 'safari',
+        platform: 'OS X 10.10'
+    },
+    // mobile
+    slIosSafari: {
+        base: 'SauceLabs',
+        browserName: 'iphone',
+        platform: 'OS X 10.9',
+        version: '9.1'
+    },
+    slAndroid: {
+        base: 'SauceLabs',
+        browserName: 'android',
+        platform: 'Linux',
+        version: '4.3'
     }
-  },
-  // ie family
-  {
-    sl_ie_9: {
-      base: 'SauceLabs',
-      browserName: 'internet explorer',
-      platform: 'Windows 7',
-      version: '9'
-    },
-    sl_ie_10: {
-      base: 'SauceLabs',
-      browserName: 'internet explorer',
-      platform: 'Windows 8',
-      version: '10'
-    },
-    sl_ie_11: {
-      base: 'SauceLabs',
-      browserName: 'internet explorer',
-      platform: 'Windows 8.1',
-      version: '11'
-    },
-    sl_edge: {
-      base: 'SauceLabs',
-      browserName: 'MicrosoftEdge',
-      platform: 'Windows 10'
-    }
-  },
-  // mobile
-  {
-    sl_ios_safari_7: {
-      base: 'SauceLabs',
-      browserName: 'iphone',
-      version: '7.0'
-    },
-    sl_ios_safari_9: {
-      base: 'SauceLabs',
-      browserName: 'iphone',
-      version: '9.2'
-    },
-    sl_android_4_2: {
-      base: 'SauceLabs',
-      browserName: 'android',
-      version: '4.2'
-    },
-    sl_android_5_1: {
-      base: 'SauceLabs',
-      browserName: 'android',
-      version: '5.1'
-    }
-  }
-]
+}
 
 module.exports = function (config) {
 
@@ -77,15 +56,14 @@ module.exports = function (config) {
         process.env.SAUCE_ACCESS_KEY = require('./sauce').accessKey;
     }
 
-    var batch = batches[process.argv[4] || 0]
 
     config.set(Object.assign(base, {
         sauceLabs: {
             'testName': 'Vue Tag Unit Tests',
             'public': 'public'
         },
-        browsers: Object.keys(batch),
-        customLaunchers: batch,
+        browsers: Object.keys(customLaunchers),
+        customLaunchers: customLaunchers,
         reporters: ['progress', 'saucelabs'],
         singleRun: true
     }));

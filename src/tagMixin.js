@@ -7,6 +7,9 @@ export default {
   methods: {
     fetch () {
       return 'hello data'
+    },
+    render () {
+      console.log("render")
     }
   }
 }

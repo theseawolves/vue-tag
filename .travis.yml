@@ -8,6 +8,7 @@ install:
     npm install --registry http://registry.npmjs.org
 script:
     - npm run test:unit
+    - npm run test:cover
     - npm run test:sauce
 after_script:
-    - npm run test:cover
+    - npm run coveralls

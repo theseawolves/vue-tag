@@ -42,7 +42,7 @@ module.exports = function (config) {
       webpackMiddleware: {
         noInfo: true
       },
-      reporters: ['progress', 'saucelabs'],
+      reporters: ['dots', 'saucelabs'],
        port: 9876,
        colors: true,
        logLevel: config.LOG_DEBUG,

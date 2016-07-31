@@ -1,52 +1,25 @@
 var base = require('./karma.conf')
 
 var customLaunchers = {
-    // pc
-    slChrome: {
-        base: 'SauceLabs',
-        browserName: 'chrome',
-        platform: 'Windows 7'
+    'SL_Chrome': {
+      base: 'SauceLabs',
+      platform: 'OS X 10.11',
+      browserName: 'chrome',
+      customData: {
+        awesome: true
+      }
     },
-    slFirefox: {
-        base: 'SauceLabs',
-        browserName: 'firefox'
+    'SL_Firefox': {
+      base: 'SauceLabs',
+      platform: 'OS X 10.11',
+      browserName: 'firefox'
     },
-    slIE11: {
-        base: 'SauceLabs',
-        browserName: 'internet explorer',
-        platform: 'Windows 8.1',
-        version: '11'
-    },
-    slIE10: {
-        base: 'SauceLabs',
-        browserName: 'internet explorer',
-        platform: 'Windows 8',
-        version: '10'
-    },
-    slIE9: {
-        base: 'SauceLabs',
-        browserName: 'internet explorer',
-        version: '9'
-    },
-    slMacSafari: {
-        base: 'SauceLabs',
-        browserName: 'safari',
-        platform: 'OS X 10.10'
-    },
-    // mobile
-    slIosSafari: {
-        base: 'SauceLabs',
-        browserName: 'iphone',
-        platform: 'OS X 10.9',
-        version: '9.1'
-    },
-    slAndroid: {
-        base: 'SauceLabs',
-        browserName: 'android',
-        platform: 'Linux',
-        version: '4.3'
+    'SL_Edge': {
+      base: 'SauceLabs',
+      platform: 'Windows 10',
+      browserName: 'microsoftedge'
     }
-}
+  }
 
 module.exports = function (config) {
 
@@ -58,13 +31,23 @@ module.exports = function (config) {
 
 
     config.set(Object.assign(base, {
-        sauceLabs: {
-            'testName': 'Vue Tag Unit Tests',
-            'public': 'public'
-        },
-        browsers: Object.keys(customLaunchers),
-        customLaunchers: customLaunchers,
-        reporters: ['progress', 'saucelabs'],
-        singleRun: true
+      reporters: ['progress', 'saucelabs'],
+       port: 9876,
+       colors: true,
+       logLevel: config.LOG_DEBUG,
+       sauceLabs: {
+         testName: 'Karma and Sauce Labs demo',
+         recordScreenshots: false,
+         connectOptions: {
+           port: 5757,
+           logfile: 'sauce_connect.log'
+         },
+         public: 'public'
+       },
+       // Increase timeout in case connection in CI is slow
+       captureTimeout: 120000,
+       customLaunchers: customLaunchers,
+       browsers: Object.keys(customLaunchers),
+       singleRun: true
     }));
 };

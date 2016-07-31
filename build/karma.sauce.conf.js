@@ -1,23 +1,21 @@
-var base = require('./karma.conf')
+//var base = require('./karma.conf')
+var webpackConf = require('./webpack.config')
+delete webpackConf.entry
 
-var customLaunchers = {
-    'SL_Chrome': {
+var customLaunchers =   {
+    sl_chrome: {
       base: 'SauceLabs',
-      platform: 'OS X 10.11',
       browserName: 'chrome',
-      customData: {
-        awesome: true
-      }
+      platform: 'Windows 7'
     },
-    'SL_Firefox': {
+    sl_firefox: {
       base: 'SauceLabs',
-      platform: 'OS X 10.11',
       browserName: 'firefox'
     },
-    'SL_Edge': {
+    sl_mac_safari: {
       base: 'SauceLabs',
-      platform: 'Windows 10',
-      browserName: 'microsoftedge'
+      browserName: 'safari',
+      platform: 'OS X 10.10'
     }
   }
 
@@ -30,14 +28,21 @@ module.exports = function (config) {
     }
 
 
-    config.set(Object.assign(base, {
-      frameworks: ['jasmine'],
+    config.set({
+      files: ['../test/unit/index.js'],
+      preprocessors: {
+        '../test/unit/index.js': ['webpack']
+      },
+      webpack: webpackConf,
+      webpackMiddleware: {
+        noInfo: true
+      },
       reporters: ['progress', 'saucelabs'],
        port: 9876,
        colors: true,
        logLevel: config.LOG_DEBUG,
        sauceLabs: {
-         testName: 'Karma and Sauce Labs demo',
+         testName: 'Vue tag unit tests',
          recordScreenshots: false,
          connectOptions: {
            port: 5757,
@@ -50,5 +55,5 @@ module.exports = function (config) {
        customLaunchers: customLaunchers,
        browsers: Object.keys(customLaunchers),
        singleRun: true
-    }));
+    });
 };

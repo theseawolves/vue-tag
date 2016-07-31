@@ -1,6 +1,3 @@
-//var base = require('./karma.conf')
-var webpackConf = require('./webpack.config')
-delete webpackConf.entry
 
 var customLaunchers =   {
     sl_chrome: {
@@ -29,11 +26,19 @@ module.exports = function (config) {
 
 
     config.set({
+      frameworks: ['jasmine'],
       files: ['../test/unit/index.js'],
       preprocessors: {
         '../test/unit/index.js': ['webpack']
       },
-      webpack: webpackConf,
+      webpack: {
+        module: {
+          loaders: [
+            { test: /\.vue$/, loader: 'vue' },
+            { test: /\.js$/, loader: 'babel', exclude: /node_modules/ }
+          ]
+        }
+      },
       webpackMiddleware: {
         noInfo: true
       },

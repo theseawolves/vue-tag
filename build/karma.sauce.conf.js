@@ -31,6 +31,7 @@ module.exports = function (config) {
 
 
     config.set(Object.assign(base, {
+      frameworks: ['jasmine'],
       reporters: ['progress', 'saucelabs'],
        port: 9876,
        colors: true,
